@@ -8,7 +8,7 @@ Normally, Docker images built using Packer cannot include entrypoint, cmd, user,
 # Caveats
 
 * `RUN`, `ADD`, `COPY`, and `ONBUILD` are not supported because packer provisioners should be used for their functionality.
-* Docker [no longer supports digests in `FROM`](https://github.com/docker/docker/commit/b8301005ffe66fb15a64735deeae707595543a92), thus a chained docker-tag post-processor is required.'
+* Docker [no longer supports digests in `FROM`](https://github.com/docker/docker/commit/b8301005ffe66fb15a64735deeae707595543a92), thus a chained docker-tag post-processor is required.
 
 
 # Usage
