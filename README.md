@@ -63,6 +63,11 @@ Put the binary `packer-post-processor-docker-dockerfile` into the `bin` director
 * [James G. Kim's re-write](https://github.com/jgkim/packer-post-processor-docker-dockerfile)
 
 
+## Sponsors
+
+This plugin was made possible by [Shiftgig](https://www.shiftgig.com/)
+
+
 ## License
 
 This plugin is released under the Apache License, Version 2.0.
