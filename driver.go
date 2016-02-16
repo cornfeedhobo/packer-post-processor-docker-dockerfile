@@ -39,7 +39,7 @@ func (d *DockerDriver) BuildImage(df *bytes.Buffer) (string, error) {
 		return "", err
 	}
 
-	p := regexp.MustCompile("Successfully built ([a-f0-9]+)")
+	p := regexp.MustCompile("sha256:([a-f0-9]+)")
 	m := p.FindStringSubmatch(stdout.String())
 	if m == nil {
 		err := fmt.Errorf("Error parsing `docker build` output: %s", stdout.String())
