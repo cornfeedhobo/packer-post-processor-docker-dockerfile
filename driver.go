@@ -39,12 +39,22 @@ func (d *DockerDriver) BuildImage(df *bytes.Buffer) (string, error) {
 		return "", err
 	}
 
-	p := regexp.MustCompile("Successfully built ([a-f0-9]+)")
-	m := p.FindStringSubmatch(stdout.String())
-	if m == nil {
-		err := fmt.Errorf("Error parsing `docker build` output: %s", stdout.String())
+	var m []string
+	var p *regexp.Regexp
 
-		return "", err
+	// Try matching 1.10 output
+	p = regexp.MustCompile("sha256:([a-f0-9]+)")
+	m = p.FindStringSubmatch(stdout.String())
+
+	// if that doesn't work, try the old output format
+	if m == nil {
+		p = regexp.MustCompile("Successfully built ([a-f0-9]+)")
+		m = p.FindStringSubmatch(stdout.String())
+
+		if m == nil {
+			err := fmt.Errorf("Error parsing `docker build` output: %s", stdout.String())
+			return "", err
+		}
 	}
 	id := m[len(m)-1]
 
