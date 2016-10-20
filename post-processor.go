@@ -140,7 +140,7 @@ func (p *PostProcessor) PostProcess(ui packer.Ui, artifact packer.Artifact) (pac
 	}
 
 	ui.Message("Tagging new image, " + id + ", as " + p.config.From)
-	err = driver.TagImage(id, p.config.From, true)
+	err = driver.TagImage(id, p.config.From, false)
 	if err != nil {
 		return nil, false, err
 	}
