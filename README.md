@@ -1,5 +1,7 @@
 # Packer Dockerfile post-processor
 
+DEPRECATED: This functionality has found it's way into the main packer binary. This repo is no longer maintained.
+
 This is a [Packer](http://packer.io/) post-processor plugin which allows setting Docker metadata on an artifact from the [docker-tag](https://packer.io/docs/post-processors/docker-tag.html) post-processor.
 
 Normally, Docker images built using Packer cannot include entrypoint, cmd, user, environment variables and other metadata that is available in Dockerfiles. This plugin will create a temporary Dockerfile and run `docker build` in an annonymous context. Most Dockerfile instructions are supported as json parametersp
